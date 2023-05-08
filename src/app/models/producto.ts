@@ -1,3 +1,5 @@
+import { Proveedor } from './proveedor';
+import { Tipoiva } from './tipoiva';
 
 
 export class Producto {
@@ -9,9 +11,9 @@ export class Producto {
     cantidad : number; 
     estado : string; 
     precioBase : number;
-    tipo_iva  : number; 
+    tipoIva  : Tipoiva; 
     fechaCreacion: Date; 
-    proveedor  : number; 
+    proveedor  : Proveedor; 
     imagen : string ; 
     cod_barras : string;
 

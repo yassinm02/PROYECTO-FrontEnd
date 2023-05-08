@@ -35,7 +35,7 @@ export class ProductsindexComponent implements OnInit {
     );
   }
 
-  filterProducts(event: Event): void {
+  FilterProductsBayName(event: Event): void {
     const searchValue = (event.target as HTMLInputElement).value;
     if (searchValue) {
       this.filteredProducts = this.products.filter(product => product.name.toLowerCase().includes(searchValue.toLowerCase()));
@@ -43,6 +43,7 @@ export class ProductsindexComponent implements OnInit {
       this.filteredProducts = this.products;
     }
   }
+
   onSearch(event: Event) {
     const searchString = (event.target as HTMLInputElement).value;
     this.filteredProducts = this.products.filter(product => product.name.toLowerCase().includes(searchString.toLowerCase()));
@@ -54,11 +55,11 @@ export class ProductsindexComponent implements OnInit {
     }
   }
 
-  searchProduct(){
+  SearchProduct(){
 
   }
 
-  addProduct(){
+  AddProduct(){
     
   }
 }

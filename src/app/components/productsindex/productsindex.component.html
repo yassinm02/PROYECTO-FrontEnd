@@ -1,3 +1,5 @@
+<script src="https://kit.fontawesome.com/e51bd09f5e.js" crossorigin="anonymous"></script>
+
 <div class="container-fluid pt-10">
   
   <h2 class="titulo">LISTA DE PRODUCTOS</h2>
@@ -19,7 +21,7 @@
         </tr>
       </thead>
       <tr *ngFor="let product of filteredProducts" (click)="ProductDetails(product.id)">
-        <td scope="row"><a [routerLink]="['/', product.id]" class="link-info">{{ product.id }}</a></td>
+        <td scope="row">{{ product.id }}</td>
         <td>{{ product.name }}</td>
         <td>{{ product.precioBase | number:'1.2-2' }}</td>
         <td>{{ product.cantidad }}</td>
