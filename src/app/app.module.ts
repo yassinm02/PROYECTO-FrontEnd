@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ProductdetailsComponent } from './components/productdetails/productdetails.component';
 import { DatePipe } from '@angular/common';
+import { NewproductComponent } from './components/newproduct/newproduct.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DatePipe } from '@angular/common';
     NavbarComponent,
     ProductsindexComponent,
     IndexComponent,
-    ProductdetailsComponent
+    ProductdetailsComponent,
+    NewproductComponent
   ],
   imports: [
     BrowserModule,

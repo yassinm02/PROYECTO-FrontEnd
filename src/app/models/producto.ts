@@ -15,6 +15,6 @@ export class Producto {
     fechaCreacion: Date; 
     proveedor  : Proveedor; 
     imagen : string ; 
-    cod_barras : string;
+    codBarras : string;
 
 }

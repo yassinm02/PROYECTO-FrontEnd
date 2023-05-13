@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid pt-10">
   <h2 class="titulo">{{ product.name }}</h2>
 
@@ -22,7 +24,7 @@
       <p><strong>Proveedor:</strong> {{ product.proveedor.name }}</p>
       <p><strong>Código de barras:</strong></p>
       <img
-        [src]="'https://barcode.tec-it.com/barcode.ashx?data='+product.cod_barras+'&code=Code128&dpi=96&dataseparator='"
+        [src]="'https://barcodeapi.org/api/codabar/'+product.codBarras"
         alt="Código de barras"
       />
     </div>
