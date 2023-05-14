@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ProveedorService {
 
   
-  proveedorURL = "http://localhost:8085/proveedores";
+  proveedorURL = "http://localhost:8085/proveedor";
 
   constructor(private httpClient: HttpClient) { }
 

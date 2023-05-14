@@ -1,0 +1,121 @@
+<div class="container-fluid pt-10">
+  <button class="btn btn-dark" (click)="volver()">Volver</button>
+
+  <div class="container-fluid pt-10">
+    <h2 class="titulo">Editar producto: {{ product.name }}</h2>
+
+    <div *ngIf="!product">PRODUCTO NO ENCONTRADO</div>
+
+    <div *ngIf="product" class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              [(ngModel)]="product.name"
+              name="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea
+              class="form-control"
+              id="descripcion"
+              [(ngModel)]="product.descripcion"
+              name="descripcion"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="marca">Marca:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="marca"
+              [(ngModel)]="product.marca"
+              name="marca"
+            />
+          </div>
+          <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="cantidad"
+              [(ngModel)]="product.cantidad"
+              name="cantidad"
+            />
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="estado"
+              [(ngModel)]="product.estado"
+              name="estado"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="precioBase">Precio base:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="precioBase"
+              [(ngModel)]="product.precioBase"
+              name="precioBase"
+            />
+          </div>
+          <div class="form-group">
+            <label for="tipoIva">Tipo de IVA:</label>
+            <select
+              class="form-control"
+              id="tipoIva"
+              [(ngModel)]="product.tipoIva"
+              name="tipoIva"
+            >
+              <option *ngFor="let tipoIva of tiposIva" [ngValue]="tipoIva">
+                {{ tipoIva.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="proveedor">Proveedor:</label>
+            <select
+              class="form-control"
+              id="proveedor"
+              [(ngModel)]="product.proveedor"
+              name="proveedor"
+            >
+              <option
+                *ngFor="let proveedor of proveedores"
+                [ngValue]="proveedor"
+              >
+                {{ proveedor.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="codBarras">Código de barras:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="codBarras"
+              [(ngModel)]="product.codBarras"
+              name="codBarras"
+            />
+          </div>
+          <button type="submit" class="btn btn-dark-success">
+            Guardar cambios
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

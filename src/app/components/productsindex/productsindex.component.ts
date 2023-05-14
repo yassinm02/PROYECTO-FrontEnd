@@ -17,7 +17,7 @@ export class ProductsindexComponent implements OnInit {
 
   constructor(
     private productService: ProductoService,
-    private router: Router
+    private router: Router,
     ) { }
 
   ngOnInit() {
@@ -51,15 +51,11 @@ export class ProductsindexComponent implements OnInit {
   
   ProductDetails(id:number | undefined): void{
     if (id !== undefined) {
-      this.router.navigateByUrl('/'+id);
+      this.router.navigateByUrl('productos/'+id);
     }
   }
-
-  SearchProduct(){
-
-  }
-
-  AddProduct(){
-    
+  
+  NewProduct(){
+    this.router.navigateByUrl('nuevo');
   }
 }

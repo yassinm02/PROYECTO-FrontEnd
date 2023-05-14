@@ -1,0 +1,18 @@
+<div class="container-fluid pt-10">
+    <h2 class="titulo">{{ proveedor.name }}</h2>
+  
+    <div *ngIf="!proveedor">Cargando...</div>
+  
+    <div *ngIf="proveedor" class="row">
+      <div class="col-md-6">
+        <p><strong>ID:</strong> {{ proveedor.id }}</p>
+        <p><strong>Nombre:</strong> {{ proveedor.name }}</p>
+        <p><strong>Dirección:</strong> {{ proveedor.address }}</p>
+        <p><strong>Teléfono:</strong> {{ proveedor.phone }}</p>
+        <p><strong>Email:</strong> {{ proveedor.email }}</p>
+        <p><strong>Sitio web:</strong> {{ proveedor.website }}</p>
+        <p><strong>Observaciones:</strong> {{ proveedor.observations }}</p>
+      </div>
+    </div>
+  </div>
+  

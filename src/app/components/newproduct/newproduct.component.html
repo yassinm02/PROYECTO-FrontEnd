@@ -1,0 +1,105 @@
+<div class="container-fluid pt-10">
+  <button class="btn btn-dark" (click)="volver()">Volver</button>
+  <div class="container-fluid pt-10">
+    <div class="container m-2">
+      <h2 class="titulo">CREAR PRODUCTO</h2>
+    </div>
+    <form [formGroup]="productForm" (ngSubmit)="save()">
+      <div class="row m-3">
+        <div class="col-md-6">
+
+          <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" class="form-control" [ngModel]="product.name" formControlName="name"
+              [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">El nombre no puede ser nulo</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea class="form-control" [(ngModel)]="product.descripcion"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="marca">Marca:</label>
+            <input type="text" class="form-control" [(ngModel)]="product.marca" formControlName="marca"
+            />
+            
+          </div>
+
+          <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" class="form-control" [(ngModel)]="product.cantidad" formControlName="cantidad"
+              [ngClass]="{ 'is-invalid': submitted && f.cantidad.errors }" min="0" />
+            <div *ngIf="submitted && f.cantidad.errors" class="invalid-feedback">
+              <div *ngIf="f.cantidad.errors.required">La cantidad no puede estar vacia</div>
+              <div *ngIf="f.cantidad.errors.min">No puede ser menor que 0</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input type="text" class="form-control" [(ngModel)]="product.estado" formControlName="estado" 
+            [ngClass]="{ 'is-invalid': submitted && f.estado.errors }"/>
+            <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+              <div *ngIf="f.estado.errors.required">El estado se debe especificar</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+
+          <div class="form-group">
+            <label for="precioBase">Precio base:</label>
+            <input type="number" class="form-control" [(ngModel)]="product.precioBase" formControlName="precioBase" 
+            [ngClass]="{ 'is-invalid': submitted && f.precioBase.errors }"/>
+            <div *ngIf="submitted && f.precioBase.errors" class="invalid-feedback">
+              <div *ngIf="f.precioBase.errors.required">Indica un precio base</div>
+              <div *ngIf="f.precioBase.errors.min">Precio no puede ser menor que 0</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tipoIva">Tipo de IVA:</label>
+            <select class="form-control" [(ngModel)]="product.tipoIva" formControlName="tipoIva" [ngClass]="{ 'is-invalid': submitted && f.tipoIva.errors }">
+              <option *ngFor="let tipoIva of tiposIva" [ngValue]="tipoIva">
+                {{ tipoIva.name }}
+              </option>
+            </select>
+            <div *ngIf="submitted && f.tipoIva.errors" class="invalid-feedback">
+              <div *ngIf="f.tipoIva.errors.required">Indica un tipo de iva</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="proveedor">Proveedor:</label>
+            <select class="form-control" [(ngModel)]="product.proveedor" formControlName="proveedor" [ngClass]="{ 'is-invalid': submitted && f.proveedor.errors }">
+              <option *ngFor="let proveedor of proveedores" [ngValue]="proveedor">
+                {{ proveedor.name }}
+              </option>
+            </select>
+            <div *ngIf="submitted && f.proveedor.errors" class="invalid-feedback">
+              <div *ngIf="f.proveedor.errors.required">Indica un proveedor</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="codBarras">Código de barras:</label>
+            <input type="text" class="form-control" [(ngModel)]="product.codBarras" formControlName="codBarras" 
+            [ngClass]="{ 'is-invalid': submitted && f.codBarras.errors }"/>
+            <div *ngIf="submitted && f.codBarras.errors" class="invalid-feedback">
+              <div *ngIf="f.codBarras.errors.required">El codigo de barras no puede estar vacio</div>
+              <div *ngIf="f.codBarras.errors.minlength">No puede ser menor que 8 digitos</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-dark" (click)="save()">Guardar producto</button>
+      </div>
+    </form>
+  </div>
+</div>

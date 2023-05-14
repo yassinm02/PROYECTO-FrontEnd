@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class ProductoService {
 
-  productURL = "http://localhost:8085/productos";
+  productURL = "http://192.168.0.17:8085/productos";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -28,9 +28,11 @@ export class ProductoService {
     return this.httpClient.post<any>(this.productURL, product);
   }
 
-  public editar(product: Producto, id: number): Observable<any> {
-    return this.httpClient.put<any>(this.productURL + "/" + id, product);
+  public edit(product: Producto): Observable<any> {
+    const url = `${this.productURL}/${product.id}`;
+    return this.httpClient.put<any>(url, product);
   }
+  
 
   public borrar(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.productURL + "/" + id);

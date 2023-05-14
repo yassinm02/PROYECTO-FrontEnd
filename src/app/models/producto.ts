@@ -17,4 +17,6 @@ export class Producto {
     imagen : string ; 
     codBarras : string;
 
+    constructor(){}
+
 }
